@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #11111A;
+  font-family: 'Ubuntu', sans-serif;
+  color: #dedee4;
+  padding: 0 15px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container {
+  width: 855px;
+  margin: 0 auto;
+}
+@media (max-width: 991px) {
+	.container {
+    width: 100%;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+/* ANIMATION */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
