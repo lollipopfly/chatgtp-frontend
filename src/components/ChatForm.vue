@@ -43,7 +43,6 @@ const isLoading = ref(false)
 const submitClass = computed((): string => {
   return question.value.length > 0 ? 'chat-form__submit--active' : ''
 })
-console.log(import.meta.env.VITE_BACKEND_URL)
 
 // METHODS
 const submit = async (): Promise<void> => {
@@ -55,7 +54,7 @@ const submit = async (): Promise<void> => {
     })
     emitLoading()
 
-    const res = await fetch('http://localhost:8000', {
+    const res = await fetch(import.meta.env.VITE_BACKEND_URL, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
