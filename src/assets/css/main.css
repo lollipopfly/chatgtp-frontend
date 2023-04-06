@@ -24,8 +24,9 @@ main {
 }
 
 .container {
-  width: 855px;
+  width: 885px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 @media (max-width: 991px) {
 	.container {
