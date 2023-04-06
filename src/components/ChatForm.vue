@@ -36,7 +36,7 @@ import type { ResponseData } from '@/types/common'
 
 const emit = defineEmits(['onResponse', 'onLoading'])
 
-const question = ref('')
+const question = ref('Напиши код загрузки файла на сервер')
 const isLoading = ref(false)
 
 // COMPUTED
@@ -93,7 +93,7 @@ const emitLoading = (): void => {
 .chat-form {
   margin-top: auto;
   width: 100%;
-  margin-bottom: 48px;
+  padding-bottom: 48px;
 }
 
 .chat-form__wrapper,

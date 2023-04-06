@@ -1,23 +1,25 @@
 <template>
   <div class="chat-response">
-    <div class="chat-response__text" v-if="data?.question">
-      <div class="container">
-        <div class="chat-response__block">
-          <img src="../assets/img/fry.png" class="chat-response__avatar" alt="Fry" />
-          {{ data?.question }}
-        </div>
-      </div>
-    </div>
+    <div class="container">
+      <perfect-scrollbar>
+        <div>
+          <div class="chat-response__text" v-if="data?.question">
+            <div class="chat-response__block">
+              <img src="../assets/img/fry.png" class="chat-response__avatar" alt="Fry" />
+              {{ data?.question }}
+            </div>
+          </div>
 
-    <div class="chat-response__text" v-if="data?.answer || isLoading">
-      <div class="container">
-        <div class="chat-response__block chat-response__block--answer">
-          <img src="../assets/img/bender.png" class="chat-response__avatar" alt="Bender" />
-          {{ data?.answer }}
+          <div class="chat-response__text" v-if="data?.answer || isLoading">
+            <div class="chat-response__block chat-response__block--answer">
+              <img src="../assets/img/bender.png" class="chat-response__avatar" alt="Bender" />
+              {{ data?.answer }}
 
-          <span v-if="isLoading" class="chat-response__caret"></span>
+              <span v-if="isLoading" class="chat-response__caret"></span>
+            </div>
+          </div>
         </div>
-      </div>
+      </perfect-scrollbar>
     </div>
   </div>
 </template>
@@ -37,9 +39,14 @@ defineProps<{
   padding-top: 48px;
 }
 
+.chat-response .ps {
+  height: calc(100vh - 178px);
+}
+
 .chat-response__block {
   display: flex;
   align-items: center;
+  width: 100%;
   padding: 24px;
   background-color: #323244;
   border-radius: 10px;
@@ -54,6 +61,7 @@ defineProps<{
 
 .chat-response__text {
   display: flex;
+  width: 100%;
   margin-bottom: 16px;
   line-height: 26px;
 }
