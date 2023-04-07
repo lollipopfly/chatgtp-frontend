@@ -36,7 +36,7 @@ import type { ResponseData } from '@/types/common'
 
 const emit = defineEmits(['onResponse', 'onLoading'])
 
-const question = ref('')
+const question = ref('напиши код загрузки файла на сервер')
 const isLoading = ref(false)
 
 // COMPUTED

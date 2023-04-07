@@ -2,21 +2,19 @@
   <div class="chat-response">
     <div class="container">
       <perfect-scrollbar>
-        <div>
-          <div class="chat-response__text" v-if="data?.question">
-            <div class="chat-response__block">
-              <img src="../assets/img/fry.png" class="chat-response__avatar" alt="Fry" />
-              {{ data?.question }}
-            </div>
+        <div class="chat-response__row" v-if="data?.question">
+          <div class="chat-response__block">
+            <img src="../assets/img/fry.png" class="chat-response__avatar" alt="Fry" />
+            <span class="chat-response__text">{{ data?.question }}</span>
           </div>
+        </div>
 
-          <div class="chat-response__text" v-if="data?.answer || isLoading">
-            <div class="chat-response__block chat-response__block--answer">
-              <img src="../assets/img/bender.png" class="chat-response__avatar" alt="Bender" />
-              {{ data?.answer }}
+        <div class="chat-response__row" v-if="data?.answer || isLoading">
+          <div class="chat-response__block chat-response__block--answer">
+            <img src="../assets/img/bender.png" class="chat-response__avatar" alt="Bender" />
+            <div class="chat-response__text">{{ data?.answer }}</div>
 
-              <span v-if="isLoading" class="chat-response__caret"></span>
-            </div>
+            <span v-if="isLoading" class="chat-response__caret"></span>
           </div>
         </div>
       </perfect-scrollbar>
@@ -45,7 +43,7 @@ defineProps<{
 
 .chat-response__block {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: 24px;
   background-color: #323244;
@@ -59,19 +57,26 @@ defineProps<{
   margin-right: 16px;
 }
 
-.chat-response__text {
+.chat-response__row {
   display: flex;
   width: 100%;
   margin-bottom: 16px;
   line-height: 26px;
 }
-.chat-response__text:last-child {
+.chat-response__row:last-child {
   margin-bottom: 0;
+}
+
+.chat-response__text {
+  padding-top: 10px;
+  white-space: pre-wrap;
 }
 
 .chat-response__caret {
   width: 3px;
   height: 17px;
+  position: relative;
+  top: 15px;
   display: inline-block;
   background-color: #7042f2;
   border-radius: 14px;

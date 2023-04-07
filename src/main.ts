@@ -9,6 +9,10 @@ import './assets/css/main.css'
 const app = createApp(App)
 
 app.use(router)
-app.use(PerfectScrollbar)
+app.use(PerfectScrollbar, {
+  options: {
+    suppressScrollX: true
+  }
+})
 
 app.mount('#app')
