@@ -12,7 +12,7 @@
         <div class="chat-response__row" v-if="data?.answer || isLoading">
           <div class="chat-response__block chat-response__block--answer">
             <img src="../assets/img/bender.png" class="chat-response__avatar" alt="Bender" />
-            <div class="chat-response__text">{{ data?.answer }}</div>
+            <highlightjs class="plaintext chat-response__text" autodetect :code="data?.answer" />
 
             <span v-if="isLoading" class="chat-response__caret"></span>
           </div>
@@ -39,6 +39,10 @@ defineProps<{
 
 .chat-response .ps {
   height: calc(100vh - 178px);
+}
+
+.chat-response pre code.hljs {
+  padding: 0;
 }
 
 .chat-response__block {

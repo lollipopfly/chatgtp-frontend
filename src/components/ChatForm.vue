@@ -36,13 +36,13 @@ import type { ResponseData } from '@/types/common'
 
 const emit = defineEmits(['onResponse', 'onLoading'])
 
-const question = ref('напиши код загрузки файла на сервер')
+const question = ref('')
 const isLoading = ref(false)
 
 // COMPUTED
-const submitClass = computed((): string => {
-  return question.value.length > 0 ? 'chat-form__submit--active' : ''
-})
+const submitClass = computed((): string =>
+  question.value.length > 0 ? 'chat-form__submit--active' : ''
+)
 
 // METHODS
 const submit = async (): Promise<void> => {
@@ -68,7 +68,7 @@ const submit = async (): Promise<void> => {
       question: question.value,
       answer: data.bot.trim()
     }
-
+    console.log(data.bot)
     emitResponse(responseData)
 
     question.value = ''
