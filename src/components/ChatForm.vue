@@ -68,10 +68,8 @@ const submit = async (): Promise<void> => {
       question: question.value,
       answer: data.bot.trim()
     }
-    console.log(data.bot)
-    emitResponse(responseData)
 
-    question.value = ''
+    emitResponse(responseData)
   } catch (error) {
     console.log(error)
   } finally {
